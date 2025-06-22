@@ -30,6 +30,9 @@ const ui = {
 
     li.append(imgAspas, pensamentoConteudo, pensamentoAutoria);
     listaPensamentos.append(li);
+  },
+  cancelarPensamento() {
+    const form = document.getElementById('pensamento-form').reset();
   }
 }
 

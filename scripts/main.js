@@ -20,4 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Erro ao salvar pensamento.')
     }
   }
+  const btnCancelar = document.getElementById('botao-cancelar');
+  btnCancelar.addEventListener('click', ui.cancelarPensamento);
 })
