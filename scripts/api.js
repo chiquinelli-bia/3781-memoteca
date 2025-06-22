@@ -1,5 +1,6 @@
 const api = {
   async buscarPensamentos() {
+    debugger
     try {
       const res = await fetch('http://localhost:3000/pensamentos');
       return await res.json();
