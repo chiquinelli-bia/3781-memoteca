@@ -1,4 +1,5 @@
 import api from "./api.js";
+const listaPensamentos = document.getElementById('lista-pensamentos');
 
 const ui = {
   async preencherForm(pensamentoId) {
@@ -6,20 +7,23 @@ const ui = {
     document.getElementById("pensamento-id").value = pensamento.id;
     document.getElementById("pensamento-conteudo").value = pensamento.conteudo;
     document.getElementById("pensamento-autoria").value = pensamento.autoria;
-
   },
   async renderizarPensamentos() {
+    const mensagemVazia = document.getElementById("mensagem-vazia");
+    listaPensamentos.innerHTML = '';
     try {
       const pensamentos = await api.buscarPensamentos();
-      document.getElementById('lista-pensamentos').innerHTML = ''; 
-      pensamentos.forEach(ui.adicionarPensamento)
-      pensamentos.forEach(ui.adicionarPensamento)
+      if (pensamentos.length === 0) {
+        mensagemVazia.style.display = "block";
+      } else {
+        mensagemVazia.style.display = "none";
+        pensamentos.forEach(ui.adicionarPensamento);
+      }
     } catch {
       alert("Erro ao renderizar pensamento.");
     }
   },
   adicionarPensamento(pensamento) {
-    const listaPensamentos = document.getElementById('lista-pensamentos');
     const li = document.createElement('li');
     li.setAttribute('data-id', pensamento.id);
     li.classList.add('li-pensamento');

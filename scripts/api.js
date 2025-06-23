@@ -2,7 +2,7 @@ const URL_BASE = "http://localhost:3000";
 const api = {
   async buscarPensamentos() {
     try {
-      const res = await fetch(`${URL_BASE}/pensamento`);
+      const res = await fetch(`${URL_BASE}/pensamentos`);
       return await res.json();
     } catch {
       alert('erro ao buscar pensamentos.');
