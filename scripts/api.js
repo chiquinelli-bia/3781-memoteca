@@ -1,4 +1,4 @@
-const URL_BASE = "http://localhost:3000"; 
+const URL_BASE = "https://pensamentos-api.onrender.com"; 
 const api = {
   async buscarPensamentos() {
     try {
