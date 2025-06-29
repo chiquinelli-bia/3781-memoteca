@@ -2,6 +2,7 @@ import api from "./api.js";
 import ui from "./interface.js";
 
 const formPensamento = document.getElementById('pensamento-form');
+const inputBusca = document.getElementById('campo-busca');
 
 document.addEventListener('DOMContentLoaded', () => {
   ui.renderizarPensamentos();
@@ -26,4 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const btnCancelar = document.getElementById('botao-cancelar');
   btnCancelar.addEventListener('click', ui.cancelarPensamento);
+
+  inputBusca.addEventListener('input', ui.manipularBusca);
 })

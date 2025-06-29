@@ -73,6 +73,16 @@ const ui = {
   },
   cancelarPensamento() {
     const form = document.getElementById('pensamento-form').reset();
+  },
+  async manipularBusca() {
+    const termobusca = document.getElementById('campo-busca').value;
+    try {
+      const pensamentosFiltrados = await api.pesquisarPensamentos(termobusca);
+      console.log(pensamentosFiltrados)
+      ui.renderizarPensamentos(pensamentosFiltrados);      
+    } catch (error) {
+      alert('Erro ao realizar Busca.')
+    }
   }
 }
 
