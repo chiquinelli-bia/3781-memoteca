@@ -48,10 +48,18 @@ const ui = {
     const botaoEditar = document.createElement("button");
     botaoEditar.classList.add("botao-editar");
     botaoEditar.onclick = () => ui.preencherForm(pensamento.id);
-
+    
     const iconeEditar = document.createElement("img");
     iconeEditar.src = "assets/imagens/icone-editar.png";
     iconeEditar.alt = "Editar";
+    
+    const botaoFavoritar = document.createElement("button");
+    botaoFavoritar.classList.add("botao-favorito");
+    botaoFavoritar.onclick = () => {}
+
+    const iconeFavoritar = document.createElement("img");
+    iconeFavoritar.src = "assets/imagens/icone-favorito_outline.png";
+    iconeFavoritar.alt = "Favoritar";
 
     const botaoExcluir = document.createElement("button");
     botaoExcluir.classList.add("botao-excluir");
@@ -64,15 +72,17 @@ const ui = {
       }
     };
 
+    
     const iconeExcluir = document.createElement("img");
     iconeExcluir.src = "assets/imagens/icone-excluir.png";
     iconeExcluir.alt = "Excluir";
     const icones = document.createElement("div");
     icones.classList.add("icones");
 
+    botaoFavoritar.appendChild(iconeFavoritar);
     botaoEditar.appendChild(iconeEditar);
     botaoExcluir.appendChild(iconeExcluir);
-    icones.append(botaoEditar, botaoExcluir);
+    icones.append(botaoFavoritar, botaoEditar, botaoExcluir);
     li.append(imgAspas, pensamentoConteudo, pensamentoAutoria, icones);
     listaPensamentos.append(li);
   },
