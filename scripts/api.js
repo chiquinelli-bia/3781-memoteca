@@ -26,16 +26,25 @@ const api = {
       return res.data;
     } catch (error) {
       alert('Erro ao buscar pensamento.');
-      throw new Error('Erro ao buscar o pensamento');
+      throw new Error('Erro ao buscar o pensamento.');
     }
   },
 
+  async favoritarPensamento(id, favorito) {
+    try {
+      const response = await axios.patch(`${URL_BASE}/pensamentos/${id}`, { favorito });
+      return response.data;
+    } catch (error) {
+      alert('Erro ao favoritar pensamento.');
+      throw error;
+    }
+  },
   async editarPensamento(pensamento) {
     try {
       const response = await axios.put(`${URL_BASE}/pensamentos/${pensamento.id}`, pensamento);
       return response.data;
     } catch (error) {
-      alert('Erro ao editar pensamento');
+      alert('Erro ao editar pensamento.');
       throw error;
     }
   },

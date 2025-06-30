@@ -44,6 +44,23 @@ const ui = {
     const pensamentoAutoria = document.createElement('div');
     pensamentoAutoria.textContent = pensamento.autoria;
     pensamentoAutoria.classList.add('pensamento-autoria');
+    
+    const botaoFavoritar = document.createElement("button");
+    botaoFavoritar.classList.add("botao-favorito");
+    botaoFavoritar.onclick = async () => {
+      try {
+        debugger
+        await api.favoritarPensamento(pensamento.id, !pensamento.favorito);
+        ui.renderizarPensamentos();
+      } catch (error) {
+        alert('Erro ao favoritar pensamento.');
+        throw error;
+      }
+    }
+
+    const iconeFavoritar = document.createElement("img");
+    iconeFavoritar.src = pensamento.favorito ? "assets/imagens/icone-favorito.png" : "assets/imagens/icone-favorito_outline.png";
+    iconeFavoritar.alt = "Favoritar";
 
     const botaoEditar = document.createElement("button");
     botaoEditar.classList.add("botao-editar");
@@ -52,14 +69,6 @@ const ui = {
     const iconeEditar = document.createElement("img");
     iconeEditar.src = "assets/imagens/icone-editar.png";
     iconeEditar.alt = "Editar";
-    
-    const botaoFavoritar = document.createElement("button");
-    botaoFavoritar.classList.add("botao-favorito");
-    botaoFavoritar.onclick = () => {}
-
-    const iconeFavoritar = document.createElement("img");
-    iconeFavoritar.src = "assets/imagens/icone-favorito_outline.png";
-    iconeFavoritar.alt = "Favoritar";
 
     const botaoExcluir = document.createElement("button");
     botaoExcluir.classList.add("botao-excluir");
