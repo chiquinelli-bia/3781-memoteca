@@ -7,6 +7,8 @@ const ui = {
     document.getElementById("pensamento-id").value = pensamento.id;
     document.getElementById("pensamento-conteudo").value = pensamento.conteudo;
     document.getElementById("pensamento-autoria").value = pensamento.autoria;
+    document.getElementById("pensamento-data").value = pensamento.data.toISOString().split('T')[0];
+    document.getElementById("form-container").scrollIntoView();
   },
   async renderizarPensamentos(pensamentosFiltrados = null) {
     const mensagemVazia = document.getElementById("mensagem-vazia");
@@ -45,11 +47,17 @@ const ui = {
     pensamentoAutoria.textContent = pensamento.autoria;
     pensamentoAutoria.classList.add('pensamento-autoria');
     
+    debugger
+    const pensamentoData = document.createElement('div');
+     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'}
+    const dataFormatada = new Date(pensamento.data).toLocaleDateString('pt-BR', options);
+    pensamentoData.textContent = dataFormatada;
+    pensamentoData.classList.add('pensamento-data');
+    
     const botaoFavoritar = document.createElement("button");
     botaoFavoritar.classList.add("botao-favorito");
     botaoFavoritar.onclick = async () => {
       try {
-        debugger
         await api.favoritarPensamento(pensamento.id, !pensamento.favorito);
         ui.renderizarPensamentos();
       } catch (error) {
@@ -92,7 +100,7 @@ const ui = {
     botaoEditar.appendChild(iconeEditar);
     botaoExcluir.appendChild(iconeExcluir);
     icones.append(botaoFavoritar, botaoEditar, botaoExcluir);
-    li.append(imgAspas, pensamentoConteudo, pensamentoAutoria, icones);
+    li.append(imgAspas, pensamentoConteudo, pensamentoAutoria, pensamentoData, icones);
     listaPensamentos.append(li);
   },
   cancelarPensamento() {

@@ -1,9 +1,18 @@
 const URL_BASE = "https://pensamentos-api.onrender.com"; 
+
+const converterData = (dataString) => {
+  const [ano, mes, dia] = dataString.split('-');
+  return new Date(Date.UTC(ano, mes - 1, dia));
+}
+
 const api = {
   async buscarPensamentos() {
     try {
       const res = await axios.get(`${URL_BASE}/pensamentos`);
-      return res.data;
+      const pensamentos = await res.data;
+      return pensamentos.map(pensamento => {
+        return {...pensamento, data: new Date(pensamento.data)}
+      })
     } catch (error) {
       alert('Erro ao buscar pensamentos.');
       throw new Error('Erro ao buscar pensamentos');
@@ -12,7 +21,8 @@ const api = {
 
   async salvarPensamento(pensamento) {
     try {
-      const response = await axios.post(`${URL_BASE}/pensamentos`, pensamento);
+      const data = converterData(pensamento.data);
+      const response = await axios.post(`${URL_BASE}/pensamentos`, {...pensamento, data: data.toISOString()});
       return response.data;
     } catch (error) {
       alert('Erro ao salvar pensamentos');
@@ -23,7 +33,8 @@ const api = {
   async buscarPensamentosPorId(id) {
     try {
       const res = await axios.get(`${URL_BASE}/pensamentos/${id}`);
-      return res.data;
+      const pensamento = await res.data;
+      return { ...pensamento, data: new Date(pensamento.data)}
     } catch (error) {
       alert('Erro ao buscar pensamento.');
       throw new Error('Erro ao buscar o pensamento.');
