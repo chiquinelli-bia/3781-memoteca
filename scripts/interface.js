@@ -47,11 +47,11 @@ const ui = {
     pensamentoAutoria.textContent = pensamento.autoria;
     pensamentoAutoria.classList.add('pensamento-autoria');
     
-    debugger
     const pensamentoData = document.createElement('div');
      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'}
     const dataFormatada = new Date(pensamento.data).toLocaleDateString('pt-BR', options);
-    pensamentoData.textContent = dataFormatada;
+    const dataComRegex = dataFormatada.replace(/^(\w)/, (match) => match.toUpperCase())
+    pensamentoData.textContent = dataComRegex;
     pensamentoData.classList.add('pensamento-data');
     
     const botaoFavoritar = document.createElement("button");
