@@ -30,8 +30,11 @@ Agora funcionalidades do ES6+, como a implementação de uma busca Typeahead(que
 - `JSON Server` : Utilizado para simular um backend e facilitar o desenvolvimento e teste das operações CRUD;
 - `Fetch API` : Utilizada para realizar requisições HTTP com os métodos GET, POST, PUT e DELETE, incluindo o uso de headers e body;
 - `Axios` : Biblioteca alternativa ao Fetch para realizar requisições HTTP de forma mais simples e com menos código;
-- `Inspeção de Requisições` : Análise de respostas, cabeçalhos (headers) e códigos de status HTTP para depuração e verificação do funcionamento da API.
-- `Node.js` : Plataforma utilizada para executar o ambiente de desenvolvimento.
+- `Inspeção de Requisições` : Análise de respostas, cabeçalhos (headers) e códigos de status HTTP para depuração e verificação do funcionamento da API;
+- `Node.js` : Plataforma utilizada para executar o ambiente de desenvolvimento;
+- `Manipulação de Datas` : Uso do objeto Date para armazenar, formatar e exibir datas corretamente;
+- `Regex` : Validação de dados com expressões regulares, garantindo consistência com métodos como Set, trim, toLowerCase e test;
+- `Pesquisa Typeahead` : Sugestão automática de opções conforme o usuário digita, utilizando métodos como filter e includes.
 
 ## ☁️ Hospedagem da API na Render
 
@@ -59,4 +62,4 @@ http://localhost:3000
 
 Para executar o frontend, abra o projeto no Visual Studio Code. Com a extensão Live Server instalada, clique com o botão direito no arquivo index.html e selecione "Open with Live Server" no menu de contexto.
 
-Você também pode [ acessar a Memoteca através deste link](https://fokus-delta-five.vercel.app/)
+Você também pode [ acessar a Memoteca através deste link](https://3781-memoteca.vercel.app/)
