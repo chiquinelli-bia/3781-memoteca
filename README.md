@@ -2,17 +2,21 @@
 
 # Memoteca
 
-Estrutura inicial do projeto criada a partir do curso "JavaScript: implementando CRUD com requisições HTTP" da Alura. Memoteca é um aplicativo organizador de pensamentos e frases que permite cadastrar, listar, editar e deletar pensamentos, incluindo informações como conteúdo e autoria.
+Estrutura inicial do projeto criada a partir do curso "JavaScript: implementando CRUD com requisições HTTP" da Alura e evoluído com o curso "JavaScript: evoluindo a sua aplicação com ES6+". Memoteca é um aplicativo organizador de pensamentos e frases que permite cadastrar, listar, editar e deletar pensamentos, incluindo informações como conteúdo e autoria.
+
+Agora funcionalidades do ES6+, como a implementação de uma busca Typeahead(que sugere automaticamente opções enquanto o usuário digita em um campo de texto.), validação de campos com regex, opção de favoritar pensamentos marcantes e adição de data.
 
 ## 🔨 Funcionalidades do projeto
 
-`Cadastro de pensamentos`: Permite adicionar novos pensamentos à lista, inserindo informações como conteúdo e autoria.
+`Cadastro de pensamentos`: Permite adicionar novos pensamentos à lista, inserindo informações como conteúdo e autoria e data.
 
-`Listagem de pensamentos`: Exibe os pensamentos cadastrados, permitindo visualizar o texto e a autoria.
+`Listagem de pensamentos`: Exibe os pensamentos cadastrados, permitindo visualizar o texto e a autoria e pensamentos favoritos.
 
 `Edição de pensamentos`: Permite editar pensamentos existentes, atualizando as informações conforme necessário.
 
 `Exclusão de pensamentos`: Permite remover pensamentos da lista.
+
+`Pesquisa typeahead`: Busca de pensamentos com sugestões de autocomplete.
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
