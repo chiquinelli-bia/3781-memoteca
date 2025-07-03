@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return
     }
     if (!validarForms(regexAuthor, autoria, null)) {
-      alert('É permitida a inclusão apenas de letras e entre 3 e 15 caracteres sem espaços.');
+      alert('É permitida a inclusão apenas de letras e espaços, com 3 a 30 caracteres.');
       return
     }
     if (!validarForms(null, null, data)) {
@@ -45,12 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
      if(pensamentosSet.has(chaveNovoPensamento)) {
        alert('Esse pensamento já existe')
        return
-     }
+     }    
+    ui.cancelarPensamento();
     try {
       if (id) {
         await api.editarPensamento({ id, conteudo, autoria, data });        
       } else {
-        await api.salvarPensamento({ conteudo, autoria, data });        
+        await api.salvarPensamento({ conteudo, autoria, data }); 
+        pensamentosSet.add(chaveNovoPensamento);       
       }
       ui.renderizarPensamentos();
     } catch {
