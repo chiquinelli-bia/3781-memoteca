@@ -18,6 +18,8 @@ Agora funcionalidades do ES6+, como a implementação de uma busca Typeahead(que
 
 `Pesquisa typeahead`: Busca de pensamentos com sugestões de autocomplete.
 
+💡 _Este projeto foi uma das etapas em que explorei diferentes formas de estruturar a organização de pastas e arquivos. Hoje sigo um padrão mais consistente, mas deixei essa versão visível para mostrar meu processo de aprendizado_
+
 ## ✔️ Técnicas e tecnologias utilizadas
 
 🧪 Tecnologias:
